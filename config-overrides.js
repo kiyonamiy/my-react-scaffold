@@ -4,10 +4,6 @@ const { override, fixBabelImports, addLessLoader, addWebpackAlias } = require('c
 const path = require('path');
 
 module.exports = override(
-  // 配置路径别名
-  addWebpackAlias({
-    types: path.resolve(__dirname, 'src/types')
-  }),
   fixBabelImports('import', {
     libraryName: 'antd',
     libraryDirectory: 'es',
