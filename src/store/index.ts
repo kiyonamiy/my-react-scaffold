@@ -1,9 +1,11 @@
 import { createStore, compose, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
 import rootReducer from './reducer';
 
-const composeEnhancers = compose;
+import examplePageSagas from '../routes/example-page/store/saga';
 
-export default createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
+const sagaMiddleware = createSagaMiddleware();
 
-export type AppState = ReturnType<typeof rootReducer>;
+export default createStore(rootReducer, compose(applyMiddleware(sagaMiddleware)));
+
+sagaMiddleware.run(examplePageSagas);

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import exampleReducer from '../routes/Example/store/reducer';
+import examplePageReducer from '../routes/example-page/store/reducer';
 
 export default combineReducers({
-  example: exampleReducer
+  examplePage: examplePageReducer
 });
